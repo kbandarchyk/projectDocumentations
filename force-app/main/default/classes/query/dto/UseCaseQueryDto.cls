@@ -1,12 +1,25 @@
 public with sharing class UseCaseQueryDto {
 
-    private final String id;
-    private final String name;
-    private final Integer useCaseNumber;
-    private final String description;
-    private final Integer version;
-    private final String priority;
-    private final String projectId;
+    @AuraEnabled
+    public final String id {get;set;}
+
+    @AuraEnabled
+    public final String name {get;set;}
+
+    @AuraEnabled
+    public final Integer useCaseNumber {get;set;}
+    
+    @AuraEnabled
+    public final String description {get;set;}
+
+    @AuraEnabled
+    public final Integer version {get;set;}
+
+    @AuraEnabled
+    public final String priority {get;set;}
+
+    @AuraEnabled
+    public final String projectId {get;set;}
 
     public UseCaseQueryDto( final String id
                           , final String name
@@ -24,28 +37,4 @@ public with sharing class UseCaseQueryDto {
         this.projectId = projectId;
     }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public Integer getUseCaseNumber() {
-        return this.useCaseNumber;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public Integer getVersion() {
-        return this.version;
-    }
-
-    public String getProjectId(){
-        return this.projectId;
-    }
-    
 }

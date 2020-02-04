@@ -2,7 +2,35 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/descriptionFrame": [
+                "descriptionFrame/descriptionFrame.js"
+            ],
+            "c/projectsTreeFrame": [
+                "projectsTreeFrame/projectsTreeFrame.js"
+            ],
+            "c/rootFrame": [
+                "rootFrame/rootFrame.js"
+            ],
+            "c/descriptionHeaderFrame": [
+                "descriptionHeaderFrame/descriptionHeaderFrame.js"
+            ],
+            "c/utils": [
+                "utils/utils.js"
+            ],
+            "c/descriptionBodyFrame": [
+                "descriptionBodyFrame/descriptionBodyFrame.js"
+            ],
+            "c/attributesFrame": [
+                "attributesFrame/attributesFrame.js"
+            ],
+            "c/attributesHeaderFrame": [
+                "attributesHeaderFrame/attributesHeaderFrame.js"
+            ],
+            "c/attributesBodyFrame": [
+                "attributesBodyFrame/attributesBodyFrame.js"
+            ]
+        }
     },
     "include": [
         "**/*",

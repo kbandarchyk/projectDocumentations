@@ -101,7 +101,7 @@ public with sharing class ProjectQueryService {
         final List<UseCaseQueryDto> resultList = new List<UseCaseQueryDto>();
         
         for( UseCaseQueryDto useCaseQueryDto: allUseCaseQueryDtos ){
-            if( useCaseQueryDto.getProjectId().equals( projectId ) ){
+            if( useCaseQueryDto.projectId.equals( projectId ) ){
                 resultList.add( useCaseQueryDto );
             }
         }
@@ -113,7 +113,7 @@ public with sharing class ProjectQueryService {
                                                , final String authorId ){
                  
         for( UserQueryDto userQueryDto: allUserQueryDtos ){
-            if( UserQueryDto.getId().equals( authorId ) ){
+            if( UserQueryDto.id.equals( authorId ) ){
                 return userQueryDto;
             }
         }

@@ -1,7 +1,10 @@
 public with sharing class UserQueryDto {
 
-    private final String id;
-    private final String name;
+    @AuraEnabled
+    public final String id {get;set;}
+
+    @AuraEnabled
+    public final String name {get;set;}
 
     public UserQueryDto( final String id
                        , final String name ) {
@@ -9,11 +12,4 @@ public with sharing class UserQueryDto {
         this.name = name;                
     }
 
-    public String getId(){
-        return this.id;
-    }
-
-    public String getName(){
-        return this.name;
-    }
 }

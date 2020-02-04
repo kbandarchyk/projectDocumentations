@@ -1,0 +1,12 @@
+<template>
+    
+     <div class="slds-p-around_medium lgc-bg">
+        <template if:true={projects}>
+            <lightning-tree items={projectsTreeItems} header="Projects" onselect={selectItemHandler}></lightning-tree>
+        </template>
+        <template if:false={projects}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+    </div>
+
+</template>

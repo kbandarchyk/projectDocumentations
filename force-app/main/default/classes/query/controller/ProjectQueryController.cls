@@ -1,12 +1,13 @@
 public with sharing class ProjectQueryController {
 
-    private final ProjectQueryService projectQueryService;
+    @AuraEnabled( cacheable=true )
+    public static List<ProjectQueryDto> fetchAll(){
 
-    public ProjectQueryController( final ProjectQueryService projectQueryService ) {
-        this.projectQueryService = projectQueryService;
-    }
+        final ProjectQueryService projectQueryService 
+            = new ProjectQueryService( new ProjectRepository()
+                                     , new UseCaseQueryService( new UseCaseRepository() )
+                                     , new UserQueryService( new UserRepository( ) ) );
 
-    public List<ProjectQueryDto> fetchAll(){
         return projectQueryService.fetchAll();
     }
 }

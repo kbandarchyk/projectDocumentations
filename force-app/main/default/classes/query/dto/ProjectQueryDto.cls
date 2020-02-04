@@ -1,13 +1,28 @@
 public with sharing class ProjectQueryDto {
 
-    private final String id;
-    private final String name;
-    private final String description;
-    private final String status;
-    private final Integer version;
-    private final String priority;
-    private final UserQueryDto author;
-    private final List<UseCaseQueryDto> useCases;
+    @AuraEnabled
+    public final String id {get;set;}
+
+    @AuraEnabled
+    public final String name {get;set;}
+
+    @AuraEnabled
+    public final String description {get;set;}
+
+    @AuraEnabled
+    public final String status {get;set;}
+
+    @AuraEnabled
+    public final Integer version {get;set;}
+
+    @AuraEnabled
+    public final String priority {get;set;}
+
+    @AuraEnabled
+    public final UserQueryDto author {get;set;}
+
+    @AuraEnabled
+    public final List<UseCaseQueryDto> useCases;
 
     public ProjectQueryDto( final String id
                           , final String name
@@ -27,35 +42,4 @@ public with sharing class ProjectQueryDto {
         this.useCases = useCases;                      
     }
 
-    public String getId(){
-        return this.id;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public String getDescription(){
-        return this.description;
-    }
-
-    public String getStatus(){
-        return this.status;
-    }
-
-    public Integer getVersion(){
-        return this.version;
-    }
-
-    public String getPriority(){
-        return this.priority;
-    }
-
-    public UserQueryDto getAuthor(){
-        return this.author;
-    } 
-
-    public List<UseCaseQueryDto> getUseCases(){
-        return this.useCases;
-    }
 }
