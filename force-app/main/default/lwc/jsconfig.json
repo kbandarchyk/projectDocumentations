@@ -29,6 +29,12 @@
             ],
             "c/attributesBodyFrame": [
                 "attributesBodyFrame/attributesBodyFrame.js"
+            ],
+            "c/projectButtonsMenu": [
+                "projectButtonsMenu/projectButtonsMenu.js"
+            ],
+            "c/creatingProjectModalBox": [
+                "creatingProjectModalBox/creatingProjectModalBox.js"
             ]
         }
     },

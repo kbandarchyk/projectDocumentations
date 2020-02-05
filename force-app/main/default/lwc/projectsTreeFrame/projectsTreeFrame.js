@@ -35,7 +35,8 @@ export default class ProjectTreeFrame extends LightningElement {
                                                 label : project.name,
                                                 name : project.id,
                                                 items : [ 
-                                                          { label : "UseCases",
+                                                          { 
+                                                            label : "UseCases",
                                                             name : "useCaseFolder", 
                                                             items : this.constructProjectTreeItems( project.useCases ) 
                                                           } 

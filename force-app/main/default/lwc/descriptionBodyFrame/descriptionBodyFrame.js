@@ -5,5 +5,4 @@ export default class DescriptionBodyFrame extends LightningElement {
 
     @api selectedItem;
 
-
 }

@@ -5,4 +5,8 @@ public with sharing class ProjectRepository {
                  FROM Project__c
                  LIMIT 50000 ];
     }
+
+    public void create( final Project__c projectRepoDto ) {
+        insert projectRepoDto;
+    }
 }

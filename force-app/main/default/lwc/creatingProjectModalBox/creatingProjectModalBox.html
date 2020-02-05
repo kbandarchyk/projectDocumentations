@@ -1,0 +1,49 @@
+<template>
+    <template if:true={priorityPicklistValues.data}>
+        <section class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <header class="slds-modal__header">
+                    <h1 class="slds-text-heading_medium slds-hyphenate">Creating project</h1>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <lightning-input type="text" 
+                                     name="name" 
+                                     label="Name:" 
+                                     required 
+                                     onchange={projectNameChangeHandler}>
+                    </lightning-input>
+
+                    <lightning-combobox name="priority" 
+                                        label="Priority:" 
+                                        value={priorityPicklistValues.data.values}
+                                        options={priorityPicklistValues.data.values} 
+                                        required
+                                        onchange={projectPriorityChangeHandler}>
+                    </lightning-combobox>
+
+                    <label class="slds-form-element__label" for="textarea-id-01"> Description:</label>
+                    <textarea id="textarea-id-01" 
+                              class="slds-textarea" 
+                              name="description"
+                              onchange={projectDescriptionChangeHandler}>
+                    </textarea>
+
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" variant="neutral" onclick={closeButtonHandler}></lightning-button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <lightning-button label="Save" variant="brand" onclick={saveButtonHandler}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:false={priorityPicklistValues.data}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+</template>

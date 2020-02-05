@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-m-top_small slds-m-bottom_medium">
+        <lightning-button variant="brand" label="Create project" onclick={createProjectHandlerClick}
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="Create useCase" onclick={createUseCaseHandlerClick}
+            class="slds-m-left_x-small"></lightning-button>
+    </div>
+
+    <template if:true={isCreatingProjectModalBoxActive}>
+        <c-creating-project-modal-box onclosecreatingproject={closeCreatingProjectHandlerClick}></c-creating-project-modal-box>
+    </template>
+
+
+</template>

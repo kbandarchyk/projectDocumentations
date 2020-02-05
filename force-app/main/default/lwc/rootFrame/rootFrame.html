@@ -1,32 +1,37 @@
 <template>
 
-    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
-        <lightning-layout>
-            <lightning-layout-item size="3" padding="around-small">
-                <div class="custom-box slds-box slds-p-around_medium slds-text-align_left">
+    <lightning-card variant="narrow">
 
-                    <c-projects-tree-frame onselecteditem={selectItemHandler}></c-projects-tree-frame>
+        <c-project-buttons-menu></c-project-buttons-menu>
 
-                </div>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" padding="around-small">
-                <div class="custom-box slds-box slds-p-around_medium slds-text-align_left">
+        <div
+            class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none slds-p-horizontal_xx-small">
+            <lightning-layout>
+                <lightning-layout-item size="3" padding="around-small">
+                    <div class="custom-box slds-box slds-p-around_medium">
 
-                    <template if:true={selectedItem}>
-                        <c-description-frame selected-item={selectedItem}></c-description-frame>
-                    </template>
+                        <c-projects-tree-frame onselecteditem={selectItemHandler}></c-projects-tree-frame>
 
-                </div>
-            </lightning-layout-item>
-            <lightning-layout-item size="3" padding="around-small">
-                <div class="custom-box slds-box slds-p-around_medium slds-text-align_left">
-                    
-                    <template if:true={selectedItem}>
-                        <c-attributes-frame selected-item={selectedItem}></c-attributes-frame>
-                    </template>
+                    </div>
+                </lightning-layout-item>
 
-                </div>
-            </lightning-layout-item>
-        </lightning-layout>
-    </div>
+                <template if:true={selectedItem}>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium">
+
+                            <c-description-frame selected-item={selectedItem}></c-description-frame>
+
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium">
+
+                            <c-attributes-frame selected-item={selectedItem}></c-attributes-frame>
+
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </div>
+    </lightning-card>
 </template>

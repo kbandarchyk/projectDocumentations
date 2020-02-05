@@ -1,25 +1,25 @@
 public with sharing class ProjectQueryDto {
 
     @AuraEnabled
-    public final String id {get;set;}
+    public final String id;
 
     @AuraEnabled
-    public final String name {get;set;}
+    public final String name;
 
     @AuraEnabled
-    public final String description {get;set;}
+    public final String description;
 
     @AuraEnabled
-    public final String status {get;set;}
+    public final String status;
 
     @AuraEnabled
-    public final Integer version {get;set;}
+    public final Integer version;
 
     @AuraEnabled
-    public final String priority {get;set;}
+    public final String priority;
 
     @AuraEnabled
-    public final UserQueryDto author {get;set;}
+    public final UserQueryDto author;
 
     @AuraEnabled
     public final List<UseCaseQueryDto> useCases;
