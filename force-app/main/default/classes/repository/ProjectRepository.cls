@@ -13,7 +13,11 @@ public with sharing class ProjectRepository {
                  LIMIT 1];
     }
 
-    public void create( final Project__c projectRepoDto ) {
+    public void creating( final Project__c projectRepoDto ) {
         insert projectRepoDto;
+    }
+
+    public void updating( final Project__c projectRepoDto ) {
+        update projectRepoDto;
     }
 }

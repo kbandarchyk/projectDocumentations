@@ -11,6 +11,16 @@ public with sharing class ProjectCommandController {
             projectCommandApplication.createProject( new ProjectCommandDto( null
                                                                           , name
                                                                           , description
-                                                                          , priority ) );
+                                                                          , priority
+                                                                          , UserInfo.getUserId() ) );
+    }
+
+    @AuraEnabled
+    public static void transferToPublishProject( final String projectId ) {
+
+        final ProjectCommandApplication projectCommandApplication = new ProjectCommandApplication( new ProjectFactory( new ProjectRepository()
+                                                                                                                     , new UserRepository() ) );
+
+            projectCommandApplication.transferToPublishProject( projectId );
     }
 }

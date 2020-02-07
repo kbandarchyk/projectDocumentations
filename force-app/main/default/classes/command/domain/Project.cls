@@ -26,6 +26,24 @@ public with sharing class Project {
         init();
     }
 
+    public Project transferToPublish(){
+
+        if( status == ProjectStatus.PUBLISHED ){
+            throw new InvalidStatusChangeException( 'Project is already in PUBLISHED status' );
+        }
+
+        return new Project( id, name, description, ProjectStatus.PUBLISHED, version, priority, author );
+    }
+
+    public Project transferToInDevelopment() {
+
+        if( status == ProjectStatus.IN_DEVELOPMENT ){
+            throw new InvalidStatusChangeException( 'Project is already in IN_DEVELOPMENT status' );
+        }
+
+        return new Project( id, name, description, ProjectStatus.IN_DEVELOPMENT, version, priority, author );
+    }
+
     public String getId() {
         return id;
     }

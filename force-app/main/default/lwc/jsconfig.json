@@ -38,6 +38,12 @@
             ],
             "c/useCaseAttributesFrame": [
                 "useCaseAttributesFrame/useCaseAttributesFrame.js"
+            ],
+            "c/projectAttributesButtonsMenu": [
+                "projectAttributesButtonsMenu/projectAttributesButtonsMenu.js"
+            ],
+            "c/publicationProjectModalBox": [
+                "publicationProjectModalBox/publicationProjectModalBox.js"
             ]
         }
     },

@@ -6,14 +6,14 @@ public with sharing class UseCaseCommandController {
                                     , final String priority
                                     , final String projectId ) {
 
-        final UseCaseApplication useCaseApplication = new UseCaseApplication( new UseCaseFactory( new UseCaseRepository()
-                                                                                                , new ProjectRepository() ) );
+        final UseCaseCommandApplication useCaseCommandApplication = new UseCaseCommandApplication( new UseCaseFactory( new UseCaseRepository()
+                                                                                                                     , new ProjectRepository() ) );
 
-        useCaseApplication.createUseCase(  new UseCaseCommandDto( null
-                                                                , name
-                                                                , useCaseNumber
-                                                                , priority
-                                                                , projectId ) );
+        useCaseCommandApplication.createUseCase(  new UseCaseCommandDto( null
+                                                                       , name
+                                                                       , useCaseNumber
+                                                                       , priority
+                                                                       , projectId ) );
     }
 
 }

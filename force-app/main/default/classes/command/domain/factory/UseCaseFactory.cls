@@ -23,8 +23,8 @@ public with sharing class UseCaseFactory {
                           , constructProjectOfUseCase( useCaseCommandDto.projectId ) );
     }
 
-    public void create( final UseCase useCase ){
-        useCaseRepository.create( toUseCaseRepoDto( useCase ) );
+    public void creating( final UseCase useCase ){
+        useCaseRepository.creating( toUseCaseRepoDto( useCase ) );
     }
 
 

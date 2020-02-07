@@ -15,7 +15,12 @@ const PriorityItemEnum = Object.freeze( {
     CRITICAL : { value: "CRITICAL" }
 });
 
-const ItemStatusEnum = Object.freeze({
+const ProjectStatusEnum = Object.freeze({
+    IN_DEVELOPMENT : { value: "IN_DEVELOPMENT" },
+    PUBLISHED : { value: "PUBLISHED"}
+})
+
+const UseCaseStatusEnum = Object.freeze({
     IN_DEVELOPMENT : { value: "IN_DEVELOPMENT" },
     PUBLISHED : { value: "PUBLISHED"}
 })
@@ -33,4 +38,4 @@ function isEmptyNumber( number ) {
     return !number;
 }
 
-export { TreeItemEnum, PriorityItemEnum, ItemStatusEnum, isBlankString, isEmptyNumber };
+export { TreeItemEnum, PriorityItemEnum, ProjectStatusEnum, UseCaseStatusEnum, isBlankString, isEmptyNumber };

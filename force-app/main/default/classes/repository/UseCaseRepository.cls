@@ -7,7 +7,7 @@ public with sharing class UseCaseRepository {
                  LIMIT 50000 ];
     }
 
-    public void create( final UseCase__c useCaseRepoDto ) {
+    public void creating( final UseCase__c useCaseRepoDto ) {
         insert useCaseRepoDto;
     }
 }
