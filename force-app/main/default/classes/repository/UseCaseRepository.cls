@@ -6,4 +6,8 @@ public with sharing class UseCaseRepository {
                  WHERE Project__r.Id IN :projectIds
                  LIMIT 50000 ];
     }
+
+    public void create( final UseCase__c useCaseRepoDto ) {
+        insert useCaseRepoDto;
+    }
 }

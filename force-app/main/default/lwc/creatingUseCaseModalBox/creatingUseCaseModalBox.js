@@ -2,10 +2,10 @@ import { LightningElement } from 'lwc';
 import { wire,track } from 'lwc';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-//import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 
 import fetchAll from '@salesforce/apex/FlatProjectQueryController.fetchAll';
-//import createUseCase from '@salesforce/apex/UseCaseCommandController.createUseCase';
+import createUseCase from '@salesforce/apex/UseCaseCommandController.createUseCase';
 import { isBlankString, isEmptyNumber } from 'c/utils';
 import UseCase__c from '@salesforce/schema/UseCase__c';
 import Priority__c from '@salesforce/schema/UseCase__c.Priority__c';
@@ -95,10 +95,10 @@ export default class CreatingUseCaseModalBox extends LightningElement {
 
     saveButtonHandler() {
 
-     /*   createUseCase( { 
+        createUseCase( { 
                         name: this.useCase.name,
-                        priority: this.useCase.priority,
                         useCaseNumber: this.useCase.useCaseNumber,
+                        priority: this.useCase.priority,
                         projectId: this.useCase.projectId
                        } )
         .then( () => {
@@ -117,7 +117,7 @@ export default class CreatingUseCaseModalBox extends LightningElement {
                                                         "message" : `UseCase cant be saved. Error: ${error.message}`,
                                                         "variant" : "error"
                                                     } ) );
-        }); */
+        }); 
                     
     }
 

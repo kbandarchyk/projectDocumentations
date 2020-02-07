@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 import { track } from 'lwc';
 
-export default class ProjectButtonsMenu extends LightningElement {
+export default class CreatingItemButtonsMenu extends LightningElement {
 
     @track isCreatingProjectModalBoxActive = false;
     @track isCreatingUseCaseModalBoxActive = false;

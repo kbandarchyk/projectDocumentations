@@ -30,14 +30,14 @@
             "c/attributesBodyFrame": [
                 "attributesBodyFrame/attributesBodyFrame.js"
             ],
-            "c/projectButtonsMenu": [
-                "projectButtonsMenu/projectButtonsMenu.js"
-            ],
             "c/creatingProjectModalBox": [
                 "creatingProjectModalBox/creatingProjectModalBox.js"
             ],
             "c/creatingUseCaseModalBox": [
                 "creatingUseCaseModalBox/creatingUseCaseModalBox.js"
+            ],
+            "c/creatingItemButtonsMenu": [
+                "creatingItemButtonsMenu/creatingItemButtonsMenu.js"
             ]
         }
     },
