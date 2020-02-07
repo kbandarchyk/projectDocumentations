@@ -103,7 +103,7 @@ export default class CreatingProjectModalBox extends LightningElement {
     }
 
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
     get isComponentDataLoaded() {

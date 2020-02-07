@@ -25,6 +25,9 @@ export default class ProjectAttributesFrame extends LightningElement {
         }
     }
 
+    ///////////////////
+    /// Get functions
+    ///////////////////
     
     @api refreshProject() {
         return refreshApex(this.wiredProject);
@@ -32,6 +35,14 @@ export default class ProjectAttributesFrame extends LightningElement {
 
     get isComponentDataLoaded() {
         return this.project;
+    }
+
+    ///////////////////
+    /// Event handlers
+    ///////////////////
+
+    refreshProjectAttributesHandler() {
+        this.refreshProject();
     }
 
 }

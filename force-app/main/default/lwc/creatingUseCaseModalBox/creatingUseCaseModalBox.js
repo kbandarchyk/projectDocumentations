@@ -136,7 +136,7 @@ export default class CreatingUseCaseModalBox extends LightningElement {
 
 
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
     get isComponentDataLoaded() {

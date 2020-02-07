@@ -8,7 +8,7 @@ export default class DescriptionFrame extends LightningElement {
     @api selectedItem;
     
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
     get isProjectTypeItem() {

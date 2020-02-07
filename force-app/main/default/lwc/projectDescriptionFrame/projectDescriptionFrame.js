@@ -27,7 +27,7 @@ export default class ProjectDescriptionFrame extends LightningElement {
     }
 
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
     @api

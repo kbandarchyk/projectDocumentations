@@ -9,7 +9,7 @@ export default class ProjectAttributesButtonsMenu extends LightningElement {
     @track isDeletingProjectModalBoxActive = false;
 
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
     get isPublishButtonDisabled() {

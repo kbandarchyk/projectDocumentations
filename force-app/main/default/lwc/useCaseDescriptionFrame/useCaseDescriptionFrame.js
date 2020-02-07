@@ -27,7 +27,7 @@ export default class UseCaseDescriptionFrame extends LightningElement {
     }
 
     ////////////////
-    /// Get methods
+    /// Get functions
     ////////////////
 
 

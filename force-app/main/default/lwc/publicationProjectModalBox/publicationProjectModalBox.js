@@ -21,7 +21,7 @@ export default class PublicationProjectModalBox extends LightningElement {
             projectId: this.projectId
            } )
         .then( () => {
-            this.dispatchEvent( new CustomEvent( 'refreshprojectstree', { bubbles: true, composed: true } ) ); 
+            this.dispatchEvent( new CustomEvent( 'refreshprojectattributes', { bubbles: true, composed: true } ) ); 
             this.dispatchEvent( new CustomEvent( 'closepublicationproject' ) );
             this.dispatchEvent( new ShowToastEvent( {
                                                      "title" : "Success!",
