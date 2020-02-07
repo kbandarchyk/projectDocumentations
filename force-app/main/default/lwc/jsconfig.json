@@ -24,12 +24,6 @@
             "c/attributesFrame": [
                 "attributesFrame/attributesFrame.js"
             ],
-            "c/attributesHeaderFrame": [
-                "attributesHeaderFrame/attributesHeaderFrame.js"
-            ],
-            "c/attributesBodyFrame": [
-                "attributesBodyFrame/attributesBodyFrame.js"
-            ],
             "c/creatingProjectModalBox": [
                 "creatingProjectModalBox/creatingProjectModalBox.js"
             ],
@@ -38,6 +32,12 @@
             ],
             "c/creatingItemButtonsMenu": [
                 "creatingItemButtonsMenu/creatingItemButtonsMenu.js"
+            ],
+            "c/projectAttributesFrame": [
+                "projectAttributesFrame/projectAttributesFrame.js"
+            ],
+            "c/useCaseAttributesFrame": [
+                "useCaseAttributesFrame/useCaseAttributesFrame.js"
             ]
         }
     },
