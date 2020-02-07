@@ -1,10 +1,10 @@
 public with sharing class UserQueryDto {
 
     @AuraEnabled
-    public final String id {get;set;}
+    public final String id;
 
     @AuraEnabled
-    public final String name {get;set;}
+    public final String name;
 
     public UserQueryDto( final String id
                        , final String name ) {

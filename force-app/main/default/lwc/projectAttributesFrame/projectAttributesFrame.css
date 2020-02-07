@@ -1,0 +1,8 @@
+.attrs-header h2 {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.slds-box.attrs-header {
+    background-color: #BFBEBE;
+}

@@ -17,7 +17,13 @@ public with sharing class FlatProjectQueryService {
         }
 
         return resultList;
+    }
 
+    public FlatProjectQueryDto fetchBy( final String projectId ){
+
+        final Project__c projectRepoDto = projectRepository.fetchById( projectId );
+
+        return toFlatProjectQueryDto( projectRepoDto );
     }
 
 

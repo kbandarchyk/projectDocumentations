@@ -12,14 +12,8 @@
             "c/rootFrame": [
                 "rootFrame/rootFrame.js"
             ],
-            "c/descriptionHeaderFrame": [
-                "descriptionHeaderFrame/descriptionHeaderFrame.js"
-            ],
             "c/utils": [
                 "utils/utils.js"
-            ],
-            "c/descriptionBodyFrame": [
-                "descriptionBodyFrame/descriptionBodyFrame.js"
             ],
             "c/attributesFrame": [
                 "attributesFrame/attributesFrame.js"
@@ -44,6 +38,12 @@
             ],
             "c/publicationProjectModalBox": [
                 "publicationProjectModalBox/publicationProjectModalBox.js"
+            ],
+            "c/projectDescriptionFrame": [
+                "projectDescriptionFrame/projectDescriptionFrame.js"
+            ],
+            "c/useCaseDescriptionFrame": [
+                "useCaseDescriptionFrame/useCaseDescriptionFrame.js"
             ]
         }
     },

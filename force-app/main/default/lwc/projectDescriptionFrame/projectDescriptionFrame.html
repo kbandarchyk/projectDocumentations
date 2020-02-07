@@ -1,0 +1,14 @@
+<template>
+
+    <template if:true={isComponentDataLoaded}>
+        <div class="slds-box slds-m-bottom_small description-header">
+            <h2 slot="title">{constructDescriptionHeader}</h2>
+        </div>
+
+        <div class="slds-box slds-m-bottom_small">
+            <lightning-formatted-rich-text value={project.description}>
+            </lightning-formatted-rich-text>
+        </div>
+    </template>
+
+</template>

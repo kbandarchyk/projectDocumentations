@@ -12,6 +12,14 @@ import Priority__c from '@salesforce/schema/Project__c.Priority__c';
 
 export default class CreatingProjectModalBox extends LightningElement {
 
+    @track isSaveButtonDisabled = true;
+    @track priorityPicklistValues;
+    @track project = { 
+                       name: null,
+                       priority: null,
+                       description: null
+                     };
+                     
     @wire(getObjectInfo, { objectApiName: Project__c })
     projectObjectInfo;
     
@@ -26,13 +34,6 @@ export default class CreatingProjectModalBox extends LightningElement {
         }
     }
 
-    @track isSaveButtonDisabled = true;
-    @track priorityPicklistValues;
-    @track project = { 
-                       name: null,
-                       priority: null,
-                       description: null
-                     };
 
     //////////////////
     /// Event handlers

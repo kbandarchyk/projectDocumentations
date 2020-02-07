@@ -5,9 +5,7 @@ import transferToPublishProject from '@salesforce/apex/ProjectCommandController.
 
 export default class PublicationProjectModalBox extends LightningElement {
 
-    @api selectedItemId;
-
-    
+    @api projectId;
 
     ///////////////////
     /// Event handlers
@@ -20,7 +18,7 @@ export default class PublicationProjectModalBox extends LightningElement {
     acceptButtonHandler() {
 
         transferToPublishProject( { 
-            projectId: this.selectedItemId
+            projectId: this.projectId
            } )
         .then( () => {
             this.dispatchEvent( new CustomEvent( 'refreshprojectstree', { bubbles: true, composed: true } ) ); 

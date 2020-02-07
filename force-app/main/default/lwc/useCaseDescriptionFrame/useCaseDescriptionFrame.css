@@ -1,0 +1,8 @@
+.description-header h2 {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.slds-box.description-header {
+    background-color: #BFBEBE;
+}

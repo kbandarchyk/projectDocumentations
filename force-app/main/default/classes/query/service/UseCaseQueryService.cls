@@ -18,6 +18,13 @@ public with sharing class UseCaseQueryService {
         
         return resultList;
     }
+    
+    public UseCaseQueryDto fetchBy( final String useCaseId ){
+
+        final UseCase__c useCaseRepoDto = useCaseRepository.fetchById( useCaseId );
+
+        return toUseCaseQueryDto( useCaseRepoDto );
+    }
 
 
     ///////////////////

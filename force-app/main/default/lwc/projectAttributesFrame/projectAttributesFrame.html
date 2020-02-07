@@ -1,10 +1,20 @@
 <template>
-    
-    <h4 class="slds-p-bottom_medium">ID: {selectedItem.id}</h4>
-    <h4 class="slds-p-bottom_medium">NAME: {selectedItem.name}</h4>
-    <h4 class="slds-p-bottom_medium">STATUS: {selectedItem.status}</h4>
-    <h4 class="slds-p-bottom_medium">VERSION: {selectedItem.version}</h4>
-    <h4 class="slds-p-bottom_medium">PRIORITY: {selectedItem.priority}</h4>
-    <h4 class="slds-p-bottom_medium">AUTHOR: {selectedItem.author.name}</h4>
-    
+
+    <template if:true={isComponentDataLoaded}>
+        <div class="slds-box slds-m-bottom_small attrs-header">
+            <h2 slot="title">Project Attributes</h2>
+        </div>
+
+        <div class="slds-box slds-m-bottom_small">
+            <h4 class="slds-p-bottom_medium">ID: {project.id}</h4>
+            <h4 class="slds-p-bottom_medium">NAME: {project.name}</h4>
+            <h4 class="slds-p-bottom_medium">STATUS: {project.status}</h4>
+            <h4 class="slds-p-bottom_medium">VERSION: {project.version}</h4>
+            <h4 class="slds-p-bottom_medium">PRIORITY: {project.priority}</h4>
+        </div>
+
+        <c-project-attributes-buttons-menu project={project}></c-project-attributes-buttons-menu>
+
+    </template>
+
 </template>

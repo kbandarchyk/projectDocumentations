@@ -1,7 +1,10 @@
 <template>
 
-        <c-description-header-frame selected-item={selectedItem}></c-description-header-frame>
-
-        <c-description-body-frame selected-item={selectedItem}></c-description-body-frame>
-        
+    <template if:true={isProjectTypeItem}>
+        <c-project-description-frame project-id={selectedItem.id}></c-project-description-frame>
+    </template>
+    <template if:true={isUseCaseTypeItem}>
+        <c-use-case-description-frame use-case-id={selectedItem.id}></c-use-case-description-frame>
+    </template>
+       
 </template>

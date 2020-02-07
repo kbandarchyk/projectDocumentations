@@ -11,7 +11,7 @@ export default class ProjectTreeFrame extends LightningElement {
     @track projects;
     @track projectsTreeItems;
     @track possiblySelectedItems;
-    @api selectedItem;
+    @track selectedItem;
 
     wiredProjects;
 
@@ -65,25 +65,12 @@ export default class ProjectTreeFrame extends LightningElement {
 
         var projectItems = this.projects.map( project => ( { 
                                                             id: project.id,
-                                                            type: TreeItemEnum.PROJECT.value,
-                                                            name: project.name,
-                                                            description: project.description,      
-                                                            status: project.status,
-                                                            version: project.version,
-                                                            priority: project.priority,
-                                                            author: Object.assign({}, project.author )
+                                                            type: TreeItemEnum.PROJECT.value
                                                            } ) );
 
         var useCaseItems = this.projects.flatMap( project => project.useCases.map( useCase => ( {
                                                                                                  id: useCase.id,
-                                                                                                 type: TreeItemEnum.USECASE.value,
-                                                                                                 name: useCase.name,
-                                                                                                 useCaseNumber: useCase.useCaseNumber,
-                                                                                                 description: useCase.description,
-                                                                                                 status : useCase.status,   
-                                                                                                 version: useCase.version,
-                                                                                                 priority: useCase.priority,
-                                                                                                 projectId: useCase.projectId    
+                                                                                                 type: TreeItemEnum.USECASE.value
                                                                                                 } ) ) );
 
         var resultItems = [];
@@ -98,7 +85,7 @@ export default class ProjectTreeFrame extends LightningElement {
         return refreshApex(this.wiredProjects);
     }
 
-    isComponentDataLoaded() {
+    get isComponentDataLoaded() {
         return this.projectsTreeItems;
     }
 

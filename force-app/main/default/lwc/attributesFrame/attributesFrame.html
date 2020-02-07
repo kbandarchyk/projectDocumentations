@@ -1,24 +1,11 @@
 <template>
 
     <template if:true={isProjectTypeItem}>
-
-        <div class="slds-box slds-m-bottom_small header-attrs">
-            <h2 slot="title">Project Attributes</h2>
-        </div>
-
-        <c-project-attributes-frame selected-item={selectedItem}></c-project-attributes-frame>
-        <c-project-attributes-buttons-menu selected-item={selectedItem}></c-project-attributes-buttons-menu>
-
+        <c-project-attributes-frame project-id={selectedItem.id}></c-project-attributes-frame>
     </template>
 
     <template if:true={isUseCaseTypeItem}>
-
-        <div class="slds-box slds-m-bottom_small header-attrs">
-            <h2 slot="title">UseCase Attributes</h2>
-        </div>
-
-        <c-use-case-attributes-frame selected-item={selectedItem}></c-use-case-attributes-frame>
-
+        <c-use-case-attributes-frame use-case-id={selectedItem.id}></c-use-case-attributes-frame>
     </template>
 
 </template>

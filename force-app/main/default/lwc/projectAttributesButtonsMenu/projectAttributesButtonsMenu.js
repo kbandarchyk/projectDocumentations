@@ -4,7 +4,7 @@ import { ProjectStatusEnum } from 'c/utils';
 
 export default class ProjectAttributesButtonsMenu extends LightningElement {
 
-    @api selectedItem;
+    @api project;
     @track isPublicationProjectModalBoxActive = false;
     @track isDeletingProjectModalBoxActive = false;
 
@@ -21,11 +21,11 @@ export default class ProjectAttributesButtonsMenu extends LightningElement {
     ///////////////
 
     isProjectInDevelopment() {
-        return this.selectedItem.status === ProjectStatusEnum.IN_DEVELOPMENT.value;
+        return this.project.status === ProjectStatusEnum.IN_DEVELOPMENT.value;
     }
 
     isProjectPublished() {
-        return this.selectedItem.status === ProjectStatusEnum.PUBLISHED.value;
+        return this.project.status === ProjectStatusEnum.PUBLISHED.value;
     }
 
     //////////////////

@@ -2,8 +2,9 @@ import { LightningElement } from 'lwc';
 import { api, track, wire } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
 import fetchById from '@salesforce/apex/UseCaseQueryController.fetchById';
+import { TreeItemEnum } from 'c/utils';
 
-export default class UseCaseAttributesFrame extends LightningElement {
+export default class UseCaseDescriptionFrame extends LightningElement {
 
     @api useCaseId;
     @track useCase;
@@ -11,11 +12,11 @@ export default class UseCaseAttributesFrame extends LightningElement {
     wiredUseCase;
 
     @wire(fetchById, { useCaseId: '$useCaseId' } )
-    fetchingUseCase( result ){
+    fetchingUseCase(result) {
 
         this.wiredUseCase = result;
 
-        if( result.data ){
+        if (result.data) {
             this.useCase = result.data;
             this.error = undefined;
         }
@@ -24,6 +25,11 @@ export default class UseCaseAttributesFrame extends LightningElement {
             this.error = result.error;
         }
     }
+
+    ////////////////
+    /// Get methods
+    ////////////////
+
 
     @api
     refreshUseCase() {
@@ -34,5 +40,8 @@ export default class UseCaseAttributesFrame extends LightningElement {
         return this.useCase;
     }
 
+    get constructDescriptionHeader() {
+        return `${TreeItemEnum.USECASE.value}: ${this.useCase.name} [ Version:${this.useCase.version} ]`;
+    }
 
 }

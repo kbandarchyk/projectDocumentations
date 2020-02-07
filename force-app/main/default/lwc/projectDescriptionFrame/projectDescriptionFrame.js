@@ -1,9 +1,10 @@
 import { LightningElement } from 'lwc';
 import { api, track, wire } from 'lwc';
+import { TreeItemEnum } from 'c/utils';
 import { refreshApex } from '@salesforce/apex';
 import fetchById from '@salesforce/apex/FlatProjectQueryController.fetchById';
 
-export default class ProjectAttributesFrame extends LightningElement {
+export default class ProjectDescriptionFrame extends LightningElement {
 
     @api projectId;
     @track project;
@@ -25,13 +26,21 @@ export default class ProjectAttributesFrame extends LightningElement {
         }
     }
 
-    
-    @api refreshProject() {
+    ////////////////
+    /// Get methods
+    ////////////////
+
+    @api
+    refreshProject() {
         return refreshApex(this.wiredProject);
     }
 
     get isComponentDataLoaded() {
         return this.project;
+    }
+
+    get constructDescriptionHeader() {
+        return `${TreeItemEnum.PROJECT.value}: ${this.project.name} [ Version:${this.project.version} ]`;
     }
 
 }

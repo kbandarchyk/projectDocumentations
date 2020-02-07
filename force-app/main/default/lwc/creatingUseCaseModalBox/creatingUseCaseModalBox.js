@@ -13,6 +13,16 @@ import Priority__c from '@salesforce/schema/UseCase__c.Priority__c';
 
 export default class CreatingUseCaseModalBox extends LightningElement {
 
+    @track projectPicklistValues;
+    @track priorityPicklistValues;
+    @track isSaveButtonDisabled = true;
+    @track useCase = { 
+                       name: null,
+                       priority: null,
+                       useCaseNumber: null,
+                       projectId: null
+                     };
+
     @wire(getObjectInfo, { objectApiName: UseCase__c })
     useCaseObjectInfo;
     
@@ -47,17 +57,6 @@ export default class CreatingUseCaseModalBox extends LightningElement {
             this.error = result.error;
         }
     }
-
-    @track projectPicklistValues;
-    @track priorityPicklistValues;
-    @track isSaveButtonDisabled = true;
-    @track useCase = { 
-                       name: null,
-                       priority: null,
-                       useCaseNumber: null,
-                       projectId: null
-                     };
-
 
     //////////////////
     /// Event handlers
