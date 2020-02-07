@@ -1,10 +1,10 @@
 <template>
     
      <div class="slds-p-around_medium lgc-bg">
-        <template if:true={projects}>
+        <template if:true={isComponentDataLoaded}>
             <lightning-tree items={projectsTreeItems} header="Projects" onselect={selectItemHandler}></lightning-tree>
         </template>
-        <template if:false={projects}>
+        <template if:false={isComponentDataLoaded}>
             <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
         </template>
     </div>

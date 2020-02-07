@@ -5,6 +5,10 @@ import { TreeItemEnum } from 'c/utils';
 export default class DescriptionHeaderFrame extends LightningElement {
 
     @api selectedItem;
+
+    ////////////////
+    /// Get methods
+    ////////////////
     
     get constructDescriptionHeader() {
 

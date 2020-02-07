@@ -6,6 +6,11 @@ export default class AttributesBodyFrame extends LightningElement {
 
     @api selectedItem;
     
+
+    ////////////////
+    /// Get methods
+    ////////////////
+
     get isProjectTypeItem() {
         return this.selectedItem.type === TreeItemEnum.PROJECT.value;
     }

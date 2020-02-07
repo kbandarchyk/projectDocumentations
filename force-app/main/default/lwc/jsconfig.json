@@ -35,6 +35,9 @@
             ],
             "c/creatingProjectModalBox": [
                 "creatingProjectModalBox/creatingProjectModalBox.js"
+            ],
+            "c/creatingUseCaseModalBox": [
+                "creatingUseCaseModalBox/creatingUseCaseModalBox.js"
             ]
         }
     },

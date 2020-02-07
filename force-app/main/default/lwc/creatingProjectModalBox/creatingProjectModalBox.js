@@ -2,36 +2,55 @@ import { LightningElement } from 'lwc';
 import { wire,track } from 'lwc';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 
 import createProject from '@salesforce/apex/ProjectCommandController.createProject';
-
+import { isBlankString } from 'c/utils';
 import Project__c from '@salesforce/schema/Project__c';
 import Priority__c from '@salesforce/schema/Project__c.Priority__c';
+
 
 export default class CreatingProjectModalBox extends LightningElement {
 
     @wire(getObjectInfo, { objectApiName: Project__c })
-    priorityObjectInfo;
+    projectObjectInfo;
     
-    @wire(getPicklistValues, { recordTypeId: '$priorityObjectInfo.data.defaultRecordTypeId', fieldApiName: Priority__c})
-    priorityPicklistValues;
+    @wire(getPicklistValues, { recordTypeId: '$projectObjectInfo.data.defaultRecordTypeId', fieldApiName: Priority__c})
+    fetchingPriorityPicklist( result ){
+        if( result.data ){
+            this.priorityPicklistValues = result.data.values;
+            this.error = undefined;
+        } else if( result.error ){
+            this.priorityPicklistValues = undefined;
+            this.error = result.error;
+        }
+    }
 
+    @track isSaveButtonDisabled = true;
+    @track priorityPicklistValues;
     @track project = { 
                        name: null,
                        priority: null,
                        description: null
                      };
 
+    //////////////////
+    /// Event handlers
+    //////////////////       
+
     projectNameChangeHandler( event ) {
         this.project.name = event.target.value;
+        this.isSaveButtonDisabled = this.calculateSaveButtonVisibility();
     }
 
     projectPriorityChangeHandler( event ) {
         this.project.priority = event.target.value;
+        this.isSaveButtonDisabled = this.calculateSaveButtonVisibility();
     }
 
     projectDescriptionChangeHandler( event ){
         this.project.description = event.target.value;
+        this.isSaveButtonDisabled = this.calculateSaveButtonVisibility();
     }
 
     closeButtonHandler() {
@@ -51,15 +70,43 @@ export default class CreatingProjectModalBox extends LightningElement {
                         description : this.project.description
                        } )
         .then( () => {
-            // eslint-disable-next-line no-console
-            console.log('Successfully');
+            this.dispatchEvent( new CustomEvent( 'refreshprojectstree', { bubbles: true, composed: true } ) ); 
             this.dispatchEvent( new CustomEvent( 'closecreatingproject' ) );
+            this.dispatchEvent( new ShowToastEvent( {
+                                                        "title" : "Success!",
+                                                        "message" : "Project saved successfully",
+                                                        "variant" : "success"
+                                                    } ) );
+
         })
         .catch( ( error ) => {
-            // eslint-disable-next-line no-console
-            console.log(`Error received: code: ${error.errorCode}, message:${error.body.message}`);
+            this.dispatchEvent( new ShowToastEvent( {
+                                                        "title" : "Error!",
+                                                        "message" : `Project cant be saved. Error: ${error.message}`,
+                                                        "variant" : "error"
+                                                    } ) );
         });
                     
+    }
+
+    ///////////////
+    /// Utils
+    ///////////////
+
+    calculateSaveButtonVisibility() {
+
+        var isProjectNameBlank = isBlankString( this.project.name );
+        var isPriorityBlank = isBlankString( this.project.priority );
+
+        return isProjectNameBlank || isPriorityBlank;
+    }
+
+    ////////////////
+    /// Get methods
+    ////////////////
+
+    get isComponentDataLoaded() {
+        return this.priorityPicklistValues;
     }
 
  

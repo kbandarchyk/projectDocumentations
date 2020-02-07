@@ -29,6 +29,7 @@ public with sharing class UseCaseQueryService {
                                   , useCase.Name
                                   , useCase.Number__c.intValue()
                                   , useCase.Description__c
+                                  , useCase.Status__c
                                   , useCase.Version__c.intValue()
                                   , useCase.Priority__c
                                   , useCase.Project__r.Id );

@@ -17,7 +17,7 @@ public with sharing class ProjectFactory {
                           , projectCommandDto.description
                           , ProjectStatus.IN_DEVELOPMENT
                           , FIRST_VERSION
-                          , Priority.valueOf( projectCommandDto.priority ) 
+                          , PriorityUtils.valueOf( projectCommandDto.priority )
                           , constructAuthor()
                           );
     }

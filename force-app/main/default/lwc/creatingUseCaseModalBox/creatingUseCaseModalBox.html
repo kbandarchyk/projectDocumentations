@@ -4,31 +4,39 @@
             <div class="slds-modal__container">
 
                 <header class="slds-modal__header">
-                    <h1 class="slds-text-heading_medium slds-hyphenate">Creating project</h1>
+                    <h1 class="slds-text-heading_medium slds-hyphenate">Creating usecase</h1>
                 </header>
 
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <lightning-combobox name="projectId" 
+                                        label="Project:" 
+                                        options={projectPicklistValues} 
+                                        required
+                                        onchange={useCaseProjectIdChangeHandler}>
+                    </lightning-combobox>
+
+                    <lightning-input type="number"
+                                     name="number"
+                                     label="Number:"
+                                     min = 1
+                                     required
+                                     onchange={useCaseNumberChangeHandler}>
+                    </lightning-input>
 
                     <lightning-input type="text" 
                                      name="name" 
                                      label="Name:" 
                                      required 
-                                     onchange={projectNameChangeHandler}>
+                                     onchange={useCaseNameChangeHandler}>
                     </lightning-input>
 
                     <lightning-combobox name="priority" 
                                         label="Priority:" 
                                         options={priorityPicklistValues} 
                                         required
-                                        onchange={projectPriorityChangeHandler}>
+                                        onchange={useCasePriorityChangeHandler}>
                     </lightning-combobox>
-
-                    <label class="slds-form-element__label" for="textarea-id-01"> Description:</label>
-                    <textarea id="textarea-id-01" 
-                              class="slds-textarea" 
-                              name="description"
-                              onchange={projectDescriptionChangeHandler}>
-                    </textarea>
 
                 </div>
 

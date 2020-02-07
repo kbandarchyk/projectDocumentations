@@ -1,4 +1,8 @@
 
+//////////////////////
+/// Enums
+//////////////////////
+
 const TreeItemEnum = Object.freeze( { 
     PROJECT : { value: "Project" },
     USECASE : { value: "UseCase"} 
@@ -16,4 +20,17 @@ const ItemStatusEnum = Object.freeze({
     PUBLISHED : { value: "PUBLISHED"}
 })
 
-export { TreeItemEnum, PriorityItemEnum, ItemStatusEnum };
+
+//////////////////////
+/// Utility functions
+//////////////////////
+
+function isBlankString( str ) {
+    return ( !str || str.trim().length === 0 );
+}
+
+function isEmptyNumber( number ) {
+    return !number;
+}
+
+export { TreeItemEnum, PriorityItemEnum, ItemStatusEnum, isBlankString, isEmptyNumber };

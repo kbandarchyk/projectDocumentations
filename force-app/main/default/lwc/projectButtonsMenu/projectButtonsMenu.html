@@ -7,7 +7,13 @@
     </div>
 
     <template if:true={isCreatingProjectModalBoxActive}>
-        <c-creating-project-modal-box onclosecreatingproject={closeCreatingProjectHandlerClick}></c-creating-project-modal-box>
+        <c-creating-project-modal-box onclosecreatingproject={closeCreatingProjectHandlerClick}>
+        </c-creating-project-modal-box>
+    </template>
+
+    <template if:true={isCreatingUseCaseModalBoxActive}>
+        <c-creating-use-case-modal-box onclosecreatingusecase={closeCreatingUseCaseHandlerClick}>
+        </c-creating-use-case-modal-box>
     </template>
 
 

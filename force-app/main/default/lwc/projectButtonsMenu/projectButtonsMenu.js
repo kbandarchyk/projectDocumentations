@@ -6,6 +6,10 @@ export default class ProjectButtonsMenu extends LightningElement {
     @track isCreatingProjectModalBoxActive = false;
     @track isCreatingUseCaseModalBoxActive = false;
 
+    //////////////////
+    /// Event handlers
+    //////////////////    
+
     createProjectHandlerClick() {
         this.isCreatingProjectModalBoxActive = true;
         this.isCreatingUseCaseModalBoxActive = false;
@@ -21,5 +25,9 @@ export default class ProjectButtonsMenu extends LightningElement {
         this.isCreatingUseCaseModalBoxActive = false;
     }
 
+    closeCreatingUseCaseHandlerClick() {
+        this.isCreatingProjectModalBoxActive = false;
+        this.isCreatingUseCaseModalBoxActive = false;
+    }
 
 }

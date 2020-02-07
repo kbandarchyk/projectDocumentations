@@ -1,8 +1,8 @@
-public with sharing class ProjectApplication {
+public with sharing class ProjectCommandApplication {
 
     private final ProjectFactory projectFactory;
 
-    public ProjectApplication( final ProjectFactory projectFactory ) {
+    public ProjectCommandApplication( final ProjectFactory projectFactory ) {
         this.projectFactory = projectFactory;
     }
 

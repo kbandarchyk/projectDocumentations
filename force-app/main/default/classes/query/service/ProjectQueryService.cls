@@ -38,15 +38,15 @@ public with sharing class ProjectQueryService {
         final List<UseCaseQueryDto> useCaseDtos = useCaseQueryService.fetchListByProjectIds( projectIds );
         final List<UserQueryDto> userDtos = userQueryService.fetchListByIds( authorIds );
 
-        final List<ProjectQueryDto> resulList = new List<ProjectQueryDto>();
+        final List<ProjectQueryDto> resultList = new List<ProjectQueryDto>();
 
         for( Project__c projectRepoDto : projectRepoDtos ){
-            resulList.add( toProjectQueryDto( projectRepoDto
+            resultList.add( toProjectQueryDto( projectRepoDto
                                             , useCaseDtos
                                             , userDtos ) );
         }
 
-        return resulList;
+        return resultList;
     }
 
     private List<String> constructProjectIdList( final List<Project__c> projectRepoDtos ){

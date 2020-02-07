@@ -5,12 +5,12 @@ public with sharing class ProjectCommandController {
                                     , final String description
                                     , final String priority ) {
 
-        final ProjectApplication projectApplication = new ProjectApplication( new ProjectFactory( new ProjectRepository()
-                                                                                                , new UserRepository() ) );
+        final ProjectCommandApplication projectCommandApplication = new ProjectCommandApplication( new ProjectFactory( new ProjectRepository()
+                                                                                                                     , new UserRepository() ) );
 
-        projectApplication.createProject( new ProjectCommandDto( null
-                                                               , name
-                                                               , description
-                                                               , priority ) );
+            projectCommandApplication.createProject( new ProjectCommandDto( null
+                                                                          , name
+                                                                          , description
+                                                                          , priority ) );
     }
 }

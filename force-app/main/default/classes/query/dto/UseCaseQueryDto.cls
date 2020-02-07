@@ -13,6 +13,9 @@ public with sharing class UseCaseQueryDto {
     public final String description {get;set;}
 
     @AuraEnabled
+    public final String status {get;set;}
+
+    @AuraEnabled
     public final Integer version {get;set;}
 
     @AuraEnabled
@@ -25,6 +28,7 @@ public with sharing class UseCaseQueryDto {
                           , final String name
                           , final Integer useCaseNumber
                           , final String description
+                          , final String status
                           , final Integer version
                           , final String priority
                           , final String projectId ) {
@@ -32,6 +36,7 @@ public with sharing class UseCaseQueryDto {
         this.name = name;
         this.useCaseNumber = useCaseNumber;
         this.description = description;
+        this.status = status;
         this.version = version;
         this.priority = priority;
         this.projectId = projectId;
