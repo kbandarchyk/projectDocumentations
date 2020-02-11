@@ -19,9 +19,6 @@ public with sharing class ProjectQueryDto {
     public final String priority;
 
     @AuraEnabled
-    public final UserQueryDto author;
-
-    @AuraEnabled
     public final List<UseCaseQueryDto> useCases;
 
     public ProjectQueryDto( final String id
@@ -30,7 +27,6 @@ public with sharing class ProjectQueryDto {
                           , final String status
                           , final Integer version
                           , final String priority
-                          , final UserQueryDto author
                           , final List<UseCaseQueryDto> useCases ) {
         this.id = id;
         this.name = name;
@@ -38,7 +34,6 @@ public with sharing class ProjectQueryDto {
         this.status = status;
         this.version = version;
         this.priority = priority;
-        this.author = author;
         this.useCases = useCases;                      
     }
 

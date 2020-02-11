@@ -1,4 +1,3 @@
-
 //////////////////////
 /// Enums
 //////////////////////
@@ -17,12 +16,14 @@ const PriorityItemEnum = Object.freeze( {
 
 const ProjectStatusEnum = Object.freeze({
     IN_DEVELOPMENT : { value: "IN_DEVELOPMENT" },
-    PUBLISHED : { value: "PUBLISHED"}
+    PUBLISHED : { value: "PUBLISHED"},
+    DELETED : { value: "DELETED"}
 })
 
 const UseCaseStatusEnum = Object.freeze({
     IN_DEVELOPMENT : { value: "IN_DEVELOPMENT" },
-    PUBLISHED : { value: "PUBLISHED"}
+    PUBLISHED : { value: "PUBLISHED"},
+    DELETED : { value: "DELETED"}
 })
 
 
@@ -38,4 +39,12 @@ function isEmptyNumber( number ) {
     return !number;
 }
 
-export { TreeItemEnum, PriorityItemEnum, ProjectStatusEnum, UseCaseStatusEnum, isBlankString, isEmptyNumber };
+
+//////////////////////
+/// Utility constants
+//////////////////////
+
+const EMPTY_STRING = "";
+
+
+export { TreeItemEnum, PriorityItemEnum, ProjectStatusEnum, UseCaseStatusEnum, isBlankString, isEmptyNumber, EMPTY_STRING };

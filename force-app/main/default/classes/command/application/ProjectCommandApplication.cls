@@ -25,4 +25,22 @@ public with sharing class ProjectCommandApplication {
 
         projectFactory.updating( modifiedProject );
     }
+
+    public void transferToDeletedProject( final String projectId ){
+
+        final Project modifiedProject = projectFactory.fetchBy( projectId )
+                                                      .transferToDeleted();
+
+        projectFactory.updating( modifiedProject );
+    }
+
+    public void editProjectDescription( final String projectId
+                                      , final String description ) {
+        
+        final Project modifiedProject = projectFactory.fetchBy( projectId )
+                                                      .editDescription( description );
+        
+        projectFactory.updating( modifiedProject );                                
+
+    }
 }

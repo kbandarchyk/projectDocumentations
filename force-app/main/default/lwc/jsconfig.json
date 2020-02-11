@@ -3,20 +3,11 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/descriptionFrame": [
-                "descriptionFrame/descriptionFrame.js"
-            ],
-            "c/projectsTreeFrame": [
-                "projectsTreeFrame/projectsTreeFrame.js"
-            ],
-            "c/rootFrame": [
-                "rootFrame/rootFrame.js"
-            ],
-            "c/utils": [
-                "utils/utils.js"
-            ],
             "c/attributesFrame": [
                 "attributesFrame/attributesFrame.js"
+            ],
+            "c/creatingItemButtonsMenu": [
+                "creatingItemButtonsMenu/creatingItemButtonsMenu.js"
             ],
             "c/creatingProjectModalBox": [
                 "creatingProjectModalBox/creatingProjectModalBox.js"
@@ -24,26 +15,50 @@
             "c/creatingUseCaseModalBox": [
                 "creatingUseCaseModalBox/creatingUseCaseModalBox.js"
             ],
-            "c/creatingItemButtonsMenu": [
-                "creatingItemButtonsMenu/creatingItemButtonsMenu.js"
-            ],
-            "c/projectAttributesFrame": [
-                "projectAttributesFrame/projectAttributesFrame.js"
-            ],
-            "c/useCaseAttributesFrame": [
-                "useCaseAttributesFrame/useCaseAttributesFrame.js"
+            "c/descriptionFrame": [
+                "descriptionFrame/descriptionFrame.js"
             ],
             "c/projectAttributesButtonsMenu": [
                 "projectAttributesButtonsMenu/projectAttributesButtonsMenu.js"
             ],
-            "c/publicationProjectModalBox": [
-                "publicationProjectModalBox/publicationProjectModalBox.js"
+            "c/projectAttributesFrame": [
+                "projectAttributesFrame/projectAttributesFrame.js"
             ],
             "c/projectDescriptionFrame": [
                 "projectDescriptionFrame/projectDescriptionFrame.js"
             ],
+            "c/projectsTreeFrame": [
+                "projectsTreeFrame/projectsTreeFrame.js"
+            ],
+            "c/publicationProjectModalBox": [
+                "publicationProjectModalBox/publicationProjectModalBox.js"
+            ],
+            "c/rootFrame": [
+                "rootFrame/rootFrame.js"
+            ],
+            "c/useCaseAttributesFrame": [
+                "useCaseAttributesFrame/useCaseAttributesFrame.js"
+            ],
             "c/useCaseDescriptionFrame": [
                 "useCaseDescriptionFrame/useCaseDescriptionFrame.js"
+            ],
+            "c/utils": [
+                "utils/utils.js"
+            ],
+            "c/deletingProjectModalBox": [
+                "deletingProjectModalBox/deletingProjectModalBox.js"
+            ],
+            "c/inDevelopmentProjectModalBox": [
+                "inDevelopmentProjectModalBox/inDevelopmentProjectModalBox.js"
+            ],
+            "c/projectDescriptionButtonsMenu": [
+                "projectDescriptionButtonsMenu/projectDescriptionButtonsMenu.js"
+            ],
+            "c/projectDescriptionEditModeModalBox": [
+                "projectDescriptionEditModeModalBox/projectDescriptionEditModeModalBox.js"
+            ],
+            "c/markdownInterpreter": [
+                "markdownInterpreter/markdownInterpreter.js"
             ]
         }
     },

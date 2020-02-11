@@ -26,6 +26,14 @@ export default class ProjectDescriptionFrame extends LightningElement {
         }
     }
 
+    ///////////////////
+    /// Event handlers
+    ///////////////////
+
+    refreshProjectDescriptionHandler() {
+        this.refreshProject();
+    }
+
     ////////////////
     /// Get functions
     ////////////////

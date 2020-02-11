@@ -1,14 +1,26 @@
 <template>
 
     <template if:true={isComponentDataLoaded}>
-        <div class="slds-box slds-m-bottom_small description-header">
-            <h2 slot="title">{constructDescriptionHeader}</h2>
+
+        <div class="slds-box slds-p-around_none slds-m-bottom_small description-header">
+            <lightning-layout>
+                <lightning-layout-item size="11" padding="around-small">
+
+                    <h2>{constructDescriptionHeader}</h2>
+
+                </lightning-layout-item>
+                <lightning-layout-item size="1" padding="around-small">
+
+                    <c-project-description-buttons-menu project={project} onrefreshprojectdescription={refreshProjectDescriptionHandler}></c-project-description-buttons-menu>
+
+                </lightning-layout-item>
+            </lightning-layout>
         </div>
 
         <div class="slds-box slds-m-bottom_small">
-            <lightning-formatted-rich-text value={project.description}>
-            </lightning-formatted-rich-text>
+            <c-markdown-interpreter source-text={project.description}></c-markdown-interpreter>
         </div>
+
     </template>
 
 </template>

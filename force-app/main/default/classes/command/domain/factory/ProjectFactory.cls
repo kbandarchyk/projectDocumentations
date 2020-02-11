@@ -3,12 +3,9 @@ public with sharing class ProjectFactory {
     private static final Integer FIRST_VERSION = 1;
 
     private final ProjectRepository projectRepository;
-    private final UserRepository userRepository;
 
-    public ProjectFactory( final ProjectRepository projectRepository
-                         , final UserRepository userRepository ) {
-        this.projectRepository = projectRepository;
-        this.userRepository = userRepository;                    
+    public ProjectFactory( final ProjectRepository projectRepository ) {
+        this.projectRepository = projectRepository;              
     }
 
     public Project constructNew( final ProjectCommandDto projectCommandDto ) {
@@ -18,7 +15,6 @@ public with sharing class ProjectFactory {
                           , ProjectStatus.IN_DEVELOPMENT
                           , FIRST_VERSION
                           , PriorityUtils.valueOf( projectCommandDto.priority )
-                          , constructAuthor( projectCommandDto.authorId )
                           );
     }
 
@@ -49,12 +45,7 @@ public with sharing class ProjectFactory {
                           , projectRepoDto.Description__c
                           , ProjectStatusUtils.valueOf( projectRepoDto.Status__c )
                           , projectRepoDto.Version__c.intValue()
-                          , PriorityUtils.valueOf( projectRepoDto.Priority__c ) 
-                          , constructAuthor( projectRepoDto.Author__c ) );
-    }
-
-    private UserInformation constructAuthor( final String authorId ) {
-        return toUserInformation( userRepository.fetchBy( UserInfo.getUserId() ) );
+                          , PriorityUtils.valueOf( projectRepoDto.Priority__c )  );
     }
 
     private UserInformation toUserInformation( final User user ) {
@@ -67,8 +58,7 @@ public with sharing class ProjectFactory {
                              , Description__c = project.getDescription()
                              , Status__c = project.getStatus().name()
                              , Version__c = project.getVersion()
-                             , Priority__c = project.getPriority().name()
-                             , Author__c = project.getAuthor().getId() );
+                             , Priority__c = project.getPriority().name() );
     }
 
 }

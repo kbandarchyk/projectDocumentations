@@ -1,9 +1,9 @@
 import { LightningElement } from 'lwc';
 import { api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
-import transferToPublishProject from '@salesforce/apex/ProjectCommandController.transferToPublishProject';
+import transferToInDevelopmentProject from '@salesforce/apex/ProjectCommandController.transferToInDevelopmentProject';
 
-export default class PublicationProjectModalBox extends LightningElement {
+export default class InDevelopmentProjectModalBox extends LightningElement {
 
     @api projectId;
 
@@ -12,20 +12,20 @@ export default class PublicationProjectModalBox extends LightningElement {
     ///////////////////
 
     rejectButtonHandler() {
-        this.dispatchEvent( new CustomEvent( 'closepublicationproject') );
+        this.dispatchEvent( new CustomEvent( 'closeindevelopmentproject') );
     }
 
     acceptButtonHandler() {
 
-        transferToPublishProject( { 
+        transferToInDevelopmentProject( { 
             projectId: this.projectId
            } )
         .then( () => {
             this.dispatchEvent( new CustomEvent( 'refreshprojectattributes', { bubbles: true, composed: true } ) ); 
-            this.dispatchEvent( new CustomEvent( 'closepublicationproject' ) );
+            this.dispatchEvent( new CustomEvent( 'closeindevelopmentproject' ) );
             this.dispatchEvent( new ShowToastEvent( {
                                                      "title" : "Success!",
-                                                     "message" : "Project published successfully",
+                                                     "message" : "Project transfered to In development successfully",
                                                      "variant" : "success"
                                                     } ) );
 
@@ -33,7 +33,7 @@ export default class PublicationProjectModalBox extends LightningElement {
         .catch( ( error ) => {
             this.dispatchEvent( new ShowToastEvent( {
                                                      "title" : "Error!",
-                                                     "message" : `Project cant be published. Error: ${error.message}`,
+                                                     "message" : `Project cant be transfered to In development. Error: ${error.message}`,
                                                      "variant" : "error"
                                                     } ) );
         });

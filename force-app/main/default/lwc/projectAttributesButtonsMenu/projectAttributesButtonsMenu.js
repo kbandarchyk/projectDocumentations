@@ -6,6 +6,7 @@ export default class ProjectAttributesButtonsMenu extends LightningElement {
 
     @api project;
     @track isPublicationProjectModalBoxActive = false;
+    @track isInDevelopmentProjectModalBoxActive = false;
     @track isDeletingProjectModalBoxActive = false;
 
     ////////////////
@@ -13,7 +14,15 @@ export default class ProjectAttributesButtonsMenu extends LightningElement {
     ////////////////
 
     get isPublishButtonDisabled() {
-        return this.isProjectPublished();
+        return this.isProjectPublished() || this.isProjectDeleted();
+    }
+
+    get isInDevelopmentButtonDisabled() {
+        return this.isProjectInDevelopment() || this.isProjectDeleted();
+    }
+
+    get isDeletedButtonDisabled() {
+        return this.isProjectDeleted();
     }
 
     ///////////////
@@ -28,27 +37,47 @@ export default class ProjectAttributesButtonsMenu extends LightningElement {
         return this.project.status === ProjectStatusEnum.PUBLISHED.value;
     }
 
+    isProjectDeleted() {
+        return this.project.status === ProjectStatusEnum.DELETED.value;
+    }
+
     //////////////////
     /// Event handlers
     //////////////////  
 
     publishProjectHandlerClick() {
         this.isPublicationProjectModalBoxActive = true;
+        this.isInDevelopmentProjectModalBoxActive = false;
+        this.isDeletingProjectModalBoxActive = false;
+    }
+
+    inDevelopmentProjectHandlerClick() {
+        this.isPublicationProjectModalBoxActive = false;
+        this.isInDevelopmentProjectModalBoxActive = true;
         this.isDeletingProjectModalBoxActive = false;
     }
 
     deleteProjectHandlerClick() {
         this.isPublicationProjectModalBoxActive = false;
+        this.isInDevelopmentProjectModalBoxActive = false;
         this.isDeletingProjectModalBoxActive = true;
     }
 
     closePublicationProjectHandlerClick() {
         this.isPublicationProjectModalBoxActive = false;
+        this.isInDevelopmentProjectModalBoxActive = false;
+        this.isDeletingProjectModalBoxActive = false;
+    }
+
+    closeInDevelopmentProjectHandlerClick() {
+        this.isPublicationProjectModalBoxActive = false;
+        this.isInDevelopmentProjectModalBoxActive = false;
         this.isDeletingProjectModalBoxActive = false;
     }
 
     closeDeletionProjectHandlerClick() {
         this.isPublicationProjectModalBoxActive = false;
+        this.isInDevelopmentProjectModalBoxActive = false;
         this.isDeletingProjectModalBoxActive = false;
     }
     

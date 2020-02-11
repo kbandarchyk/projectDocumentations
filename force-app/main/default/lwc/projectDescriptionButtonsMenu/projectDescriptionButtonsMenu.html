@@ -1,0 +1,19 @@
+<template>
+
+    <lightning-button-icon icon-name="utility:settings"  
+                           alternative-text="Edit Mode"
+                           variant="border"
+                           size="x-small"
+                           class="slds-m-right_xx-small"
+                           disabled={isEditModeButtonDisabled}
+                           onclick={editModeHandlerClick}>
+    </lightning-button-icon>
+
+
+    <template if:true={isEditModeActive}>
+        <c-project-description-edit-mode-modal-box project={project} oncloseprojecteditmode={closeEditModeHandlerClick}>
+        </c-project-description-edit-mode-modal-box>
+    </template>
+
+
+</template>

@@ -1,9 +1,9 @@
 import { LightningElement } from 'lwc';
 import { api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
-import transferToPublishProject from '@salesforce/apex/ProjectCommandController.transferToPublishProject';
+import transferToDeletedProject from '@salesforce/apex/ProjectCommandController.transferToDeletedProject';
 
-export default class PublicationProjectModalBox extends LightningElement {
+export default class DeletingProjectModalBox extends LightningElement {
 
     @api projectId;
 
@@ -12,20 +12,21 @@ export default class PublicationProjectModalBox extends LightningElement {
     ///////////////////
 
     rejectButtonHandler() {
-        this.dispatchEvent( new CustomEvent( 'closepublicationproject') );
+        this.dispatchEvent( new CustomEvent( 'closedeletingproject') );
     }
 
     acceptButtonHandler() {
 
-        transferToPublishProject( { 
+        transferToDeletedProject( { 
             projectId: this.projectId
            } )
         .then( () => {
+            this.dispatchEvent( new CustomEvent( 'refreshprojectstree', { bubbles: true, composed: true } ) ); 
             this.dispatchEvent( new CustomEvent( 'refreshprojectattributes', { bubbles: true, composed: true } ) ); 
-            this.dispatchEvent( new CustomEvent( 'closepublicationproject' ) );
+            this.dispatchEvent( new CustomEvent( 'closedeletingproject' ) );
             this.dispatchEvent( new ShowToastEvent( {
                                                      "title" : "Success!",
-                                                     "message" : "Project published successfully",
+                                                     "message" : "Project deleted successfully",
                                                      "variant" : "success"
                                                     } ) );
 
@@ -33,7 +34,7 @@ export default class PublicationProjectModalBox extends LightningElement {
         .catch( ( error ) => {
             this.dispatchEvent( new ShowToastEvent( {
                                                      "title" : "Error!",
-                                                     "message" : `Project cant be published. Error: ${error.message}`,
+                                                     "message" : `Project cant be deleted. Error: ${error.message}`,
                                                      "variant" : "error"
                                                     } ) );
         });

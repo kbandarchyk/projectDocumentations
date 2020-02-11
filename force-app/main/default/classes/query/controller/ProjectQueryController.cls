@@ -5,8 +5,7 @@ public with sharing class ProjectQueryController {
 
         final ProjectQueryService projectQueryService 
             = new ProjectQueryService( new ProjectRepository()
-                                     , new UseCaseQueryService( new UseCaseRepository() )
-                                     , new UserQueryService( new UserRepository( ) ) );
+                                     , new UseCaseQueryService( new UseCaseRepository() ) );
 
         return projectQueryService.fetchAll();
     }

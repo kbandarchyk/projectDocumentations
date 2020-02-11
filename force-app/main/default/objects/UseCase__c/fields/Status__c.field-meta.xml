@@ -11,14 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>PUBLISHED</fullName>
-                <default>false</default>
-                <label>PUBLISHED</label>
-            </value>
-            <value>
                 <fullName>IN_DEVELOPMENT</fullName>
                 <default>false</default>
                 <label>IN_DEVELOPMENT</label>
+            </value>
+            <value>
+                <fullName>PUBLISHED</fullName>
+                <default>false</default>
+                <label>PUBLISHED</label>
             </value>
             <value>
                 <fullName>DELETED</fullName>

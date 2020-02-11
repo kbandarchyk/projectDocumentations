@@ -1,4 +1,5 @@
 public enum UseCaseStatus {
     IN_DEVELOPMENT,
-    PUBLISHED
+    PUBLISHED,
+    DELETED
 }

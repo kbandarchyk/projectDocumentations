@@ -6,42 +6,59 @@ public with sharing class Project {
     private final ProjectStatus status;
     private final Integer version;
     private final Priority priority;
-    private final UserInformation author;
 
     public Project( final String id
                   , final String name
                   , final String description
                   , final ProjectStatus status
                   , final Integer version
-                  , final Priority priority
-                  , final UserInformation author ) {
+                  , final Priority priority ) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
         this.version = version;
-        this.priority = priority;
-        this.author = author;              
+        this.priority = priority;         
 
         init();
     }
 
-    public Project transferToPublish(){
+    public Project transferToPublish( ){
 
         if( status == ProjectStatus.PUBLISHED ){
             throw new InvalidStatusChangeException( 'Project is already in PUBLISHED status' );
         }
 
-        return new Project( id, name, description, ProjectStatus.PUBLISHED, version, priority, author );
+        return new Project( id, name, description, ProjectStatus.PUBLISHED, version, priority );
     }
 
-    public Project transferToInDevelopment() {
+    public Project transferToInDevelopment( ) {
 
         if( status == ProjectStatus.IN_DEVELOPMENT ){
             throw new InvalidStatusChangeException( 'Project is already in IN_DEVELOPMENT status' );
         }
 
-        return new Project( id, name, description, ProjectStatus.IN_DEVELOPMENT, version, priority, author );
+        final Integer newVersion = version + 1;
+
+        return new Project( id, name, description, ProjectStatus.IN_DEVELOPMENT, newVersion, priority );
+    }
+
+    public Project transferToDeleted( ) {
+
+        if( status == ProjectStatus.DELETED ){
+            throw new InvalidStatusChangeException( 'Project is already in DELETED status' );
+        }
+
+        return new Project( id, name, description, ProjectStatus.DELETED, version, priority );
+    }
+
+    public Project editDescription( final String newDescription ) {
+
+        if( status != ProjectStatus.IN_DEVELOPMENT ){
+            throw new InvalidStatusChangeException(' Only project IN_DEVELOPMENT status can be edited ');
+        }
+
+        return new Project( id, name, newDescription, status, version, priority );
     }
 
     public String getId() {
@@ -68,11 +85,7 @@ public with sharing class Project {
         return priority;
     }
 
-    public UserInformation getAuthor() {
-        return author;
-    }
 
-    
     private void init() {
 
         if( name == null ) {
@@ -89,10 +102,6 @@ public with sharing class Project {
 
         if( priority == null ) {
             throw new CreateInvalidObjectException( 'Project priority cant be empty' );
-        }
-
-        if( author == null ) {
-            throw new CreateInvalidObjectException( 'Project author cant be empty' );
         }
     }
 

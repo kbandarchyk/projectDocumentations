@@ -3,11 +3,11 @@
     <div class="slds-m-top_small slds-m-bottom_medium">
         <lightning-button variant="success" label="Publish" onclick={publishProjectHandlerClick}
             disabled={isPublishButtonDisabled} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="success" label="In Development" onclick={inDevelopmentProjectHandlerClick}
+            disabled={isInDevelopmentButtonDisabled} class="slds-m-left_x-small"></lightning-button>
         <lightning-button variant="destructive " label="Delete" onclick={deleteProjectHandlerClick}
-            class="slds-m-left_x-small"></lightning-button>
+            disabled={isDeletedButtonDisabled} class="slds-m-left_x-small"></lightning-button>
     </div>
-
-
 
     <template if:true={isPublicationProjectModalBoxActive}>
         <c-publication-project-modal-box onclosepublicationproject={closePublicationProjectHandlerClick}
@@ -15,10 +15,16 @@
         </c-publication-project-modal-box>
     </template>
 
-    <!--  <template if:true={isDeletingProjectModalBoxActive}>
-        <c-creating-use-case-modal-box onclosecreatingusecase={closeDeletionProjectHandlerClick}>
-        </c-creating-use-case-modal-box>
-    </template> -->
+    <template if:true={isInDevelopmentProjectModalBoxActive}>
+        <c-in-development-project-modal-box oncloseindevelopmentproject={closeInDevelopmentProjectHandlerClick}
+            project-id={project.id}>
+        </c-in-development-project-modal-box>
+    </template>
 
+    <template if:true={isDeletingProjectModalBoxActive}>
+        <c-deleting-project-modal-box onclosedeletingproject={closeDeletionProjectHandlerClick}
+            project-id={project.id}>
+        </c-deleting-project-modal-box>
+    </template>
 
 </template>
